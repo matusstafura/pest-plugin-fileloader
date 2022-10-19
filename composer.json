@@ -1,5 +1,5 @@
 {
-    "name": "matusstafura/pest-plugin-file",
+    "name": "matusstafura/pest-plugin-fileloader",
     "description": "My awesome plugin",
     "keywords": [
         "php",
