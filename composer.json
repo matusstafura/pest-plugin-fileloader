@@ -1,0 +1,46 @@
+{
+    "name": "matusstafura/pest-plugin-file",
+    "description": "My awesome plugin",
+    "keywords": [
+        "php",
+        "pest",
+        "testing",
+        "plugin"
+    ],
+    "authors": [{
+        "name": "Matus Stafura",
+        "email": "kobe21@gmail.com",
+        "role": "Developer"
+    }
+    ],
+    "homepage": "https://github.com/matusstafura/pest-plugin-fileloader",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "pestphp/pest": "^1.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MatusStafura\\PestPluginFileLoader\\": "src/"
+        },
+        "files": [
+            "src/Functions.php"
+        ]
+    },
+    "require-dev": {
+        "pestphp/pest-dev-tools": "^2.0.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "pest"
+        "lint": "pint",
+    }
+}
