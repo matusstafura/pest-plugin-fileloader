@@ -6,7 +6,7 @@ use MatusStafura\PestPluginFileLoader\Plugin;
 const FILEPATH_JSON = 'tests/response_dump.json';
 const FILEPATH_PLAINTEXT = 'tests/plaintext.txt';
 
-it('reads a file', function () {
+it('reads a file and checks if json', function () {
     $plugin = new Plugin();
     $json = $plugin->json(FILEPATH_JSON);
     expect($json)->toBeArray()

@@ -1,11 +1,5 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
-
-## [Unreleased]
-
-## [Unreleased](first-commit-link)
-### Added
-- First version
+## [0.1.0] - 20221022 (first-commit-link)
+- First version, load json file to array and plaintext

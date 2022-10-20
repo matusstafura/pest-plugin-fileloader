@@ -1,11 +1,12 @@
 {
     "name": "matusstafura/pest-plugin-fileloader",
-    "description": "My awesome plugin",
+    "description": "A PHP Pest plugin to load file",
     "keywords": [
         "php",
         "pest",
         "testing",
-        "plugin"
+        "plugin",
+        "matusstafura"
     ],
     "authors": [{
         "name": "Matus Stafura",
@@ -41,6 +42,5 @@
     },
     "scripts": {
         "test": "pest"
-        "lint": "pint",
     }
 }
