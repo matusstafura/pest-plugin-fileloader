@@ -41,6 +41,8 @@
         }
     },
     "scripts": {
-        "test": "pest"
+        "test": "pest",
+        "coverage": "pest --coverage-html coverage",
+        "stan": "phpstan"
     }
 }

@@ -14,11 +14,11 @@ final class Plugin
     {
         $result = json_decode($this->getFileContents($filepath), true);
 
-        if (json_last_error() === 0) {
-            return $result;
+        if ($result === null) {
+            throw new \Exception("file $filepath does not contain valid JSON");
         }
 
-        return null;
+        return $result;
     }
 
     public function plaintext(string $filepath): bool|string
@@ -26,8 +26,11 @@ final class Plugin
         return $this->getFileContents($filepath);
     }
 
-    private function getFileContents(string $filepath): bool|string
+    public function getFileContents(string $filepath): string
     {
+        if (!file_exists($filepath)) {
+            throw new \Exception("File not found");
+        }
         return file_get_contents($filepath);
     }
 }

@@ -26,7 +26,13 @@ it('txt', function () {
     expect($txt)->toBeString();
 });
 
-it('checks if a json file is a json', function () {
-    $json = fileLoader()->json(FILEPATH_PLAINTEXT);
-    expect($json)->toBeNull();
-});
+it('throws error if file not found', function () {
+    $plugin = new Plugin();
+    $filename = "file_that_does_not_exist.txt";
+    $plugin->getFileContents($filename);
+})->throws(\Exception::class)->expectErrorMessage("File not found");
+
+it('throws error if file contains invalid json', function () {
+    $plugin = new Plugin();
+    $x = $plugin->json(FILEPATH_PLAINTEXT);
+})->throws(\Exception::class)->expectErrorMessage("file ".FILEPATH_PLAINTEXT." does not contain valid JSON");
