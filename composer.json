@@ -8,17 +8,19 @@
         "plugin",
         "matusstafura"
     ],
-    "authors": [{
-        "name": "Matus Stafura",
-        "email": "kobe21@gmail.com",
-        "role": "Developer"
-    }
+    "authors": [
+        {
+            "name": "Matus Stafura",
+            "email": "kobe21@gmail.com",
+            "role": "Developer"
+        }
     ],
     "homepage": "https://github.com/matusstafura/pest-plugin-fileloader",
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "pestphp/pest": "^1.2.0"
+        "pestphp/pest": "^1.2.0",
+        "ext-simplexml": "*"
     },
     "autoload": {
         "psr-4": {

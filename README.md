@@ -2,18 +2,29 @@
 
 This Pest plugin simplifies loading file for testing.
 
-If you want to test response, save it as json, load file and test:
+If you want to test a response, save it as json, load a file and test:
 
 ```php
 use function MatusStafura\PestPluginFileLoader\fileLoader;
-const FILEPATH_JSON = 'tests/response_dump.json';
 
 test('response', function () {
-    $json = fileLoader()->json(FILEPATH_JSON);
+    $json = fileLoader()->json('tests/response_dump.json');
     expect($json)->toBeArray()
         ->and($json['id'])->toBe(1)
         ->and($json['title'])->toBe('Shirt Black');
 });
+```
+
+Available methods:
+```php
+json(string $filepath): array
+// $json = fileLoader()->json('response.json');
+
+plaintext(string $filepath): string
+// fileLoader()->plaintext('response.txt');
+
+xmlToArray(string $filepath): array
+// fileLoader()->json('response.xml');
 ```
 
 ## Testing
