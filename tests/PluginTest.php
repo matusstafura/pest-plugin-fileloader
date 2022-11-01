@@ -1,10 +1,12 @@
 <?php
 
+use MatusStafura\PestPluginFileLoader\Exceptions\FileNotFoundException;
 use function MatusStafura\PestPluginFileLoader\fileLoader;
 use MatusStafura\PestPluginFileLoader\Plugin;
 
 const FILEPATH_JSON = 'tests/response_dump.json';
 const FILEPATH_PLAINTEXT = 'tests/plaintext.txt';
+const FILEPATH_XML = 'tests/simplexml.xml';
 
 it('reads a file and checks if json', function () {
     $plugin = new Plugin();
@@ -30,9 +32,15 @@ it('throws error if file not found', function () {
     $plugin = new Plugin();
     $filename = "file_that_does_not_exist.txt";
     $plugin->getFileContents($filename);
-})->throws(\Exception::class)->expectErrorMessage("File not found");
+})->throws(FileNotFoundException::class)->expectErrorMessage("File not found");
 
 it('throws error if file contains invalid json', function () {
     $plugin = new Plugin();
     $x = $plugin->json(FILEPATH_PLAINTEXT);
 })->throws(\Exception::class)->expectErrorMessage("file ".FILEPATH_PLAINTEXT." does not contain valid JSON");
+
+it('xml', function () {
+    $xml = fileLoader()->xmlToArray(FILEPATH_XML);
+    expect($xml)->toBeArray()
+        ->and($xml["book"][0]["author"])->toBe("Gambardella, Matthew");
+});
