@@ -3,6 +3,7 @@
 use MatusStafura\PestPluginFileLoader\Exceptions\FileNotFoundException;
 use function MatusStafura\PestPluginFileLoader\fileLoader;
 use MatusStafura\PestPluginFileLoader\Plugin;
+use PHPUnit\Util\InvalidJsonException;
 
 const FILEPATH_JSON = 'tests/response_dump.json';
 const FILEPATH_PLAINTEXT = 'tests/plaintext.txt';
@@ -32,12 +33,12 @@ it('throws error if file not found', function () {
     $plugin = new Plugin();
     $filename = "file_that_does_not_exist.txt";
     $plugin->getFileContents($filename);
-})->throws(FileNotFoundException::class)->expectErrorMessage("File not found");
+})->throws(FileNotFoundException::class, "File not found");
 
 it('throws error if file contains invalid json', function () {
     $plugin = new Plugin();
-    $x = $plugin->json(FILEPATH_PLAINTEXT);
-})->throws(\Exception::class)->expectErrorMessage("file ".FILEPATH_PLAINTEXT." does not contain valid JSON");
+    $plugin->json(FILEPATH_PLAINTEXT);
+})->throws(InvalidJsonException::class, "file ".FILEPATH_PLAINTEXT." does not contain valid JSON");
 
 it('xml', function () {
     $xml = fileLoader()->xmlToArray(FILEPATH_XML);

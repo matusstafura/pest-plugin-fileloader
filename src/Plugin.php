@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MatusStafura\PestPluginFileLoader;
 
 use MatusStafura\PestPluginFileLoader\Exceptions\FileNotFoundException;
+use PHPUnit\Util\InvalidJsonException;
 
 final class Plugin
 {
@@ -18,7 +19,7 @@ final class Plugin
         $result = json_decode($this->getFileContents($filepath), true);
 
         if ($result === null) {
-            throw new \Exception("file $filepath does not contain valid JSON");
+            throw new InvalidJsonException("file $filepath does not contain valid JSON");
         }
 
         return $result;
