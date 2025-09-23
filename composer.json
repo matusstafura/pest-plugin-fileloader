@@ -18,8 +18,8 @@
     "homepage": "https://github.com/matusstafura/pest-plugin-fileloader",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "pestphp/pest": "^1.2 || ^2.0",
+        "php": "^8.1 || ^8.2 || ^8.3 || ^8.4",
+        "pestphp/pest": "^2.0 || ^3.0 || ^4.0",
         "ext-simplexml": "*"
     },
     "autoload": {
@@ -31,7 +31,7 @@
         ]
     },
     "require-dev": {
-        "pestphp/pest-dev-tools": "^2.0.0"
+        "pestphp/pest-dev-tools": "^2.0.0 || ^3.0 || ^4.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
