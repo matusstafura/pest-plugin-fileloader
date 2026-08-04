@@ -6,5 +6,4 @@ namespace MatusStafura\PestPluginFileLoader\Exceptions;
 
 class InvalidXmlException extends FileLoaderException
 {
-
 }

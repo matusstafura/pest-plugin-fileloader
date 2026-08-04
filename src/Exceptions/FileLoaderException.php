@@ -6,5 +6,4 @@ namespace MatusStafura\PestPluginFileLoader\Exceptions;
 
 class FileLoaderException extends \Exception
 {
-
 }
