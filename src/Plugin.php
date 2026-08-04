@@ -24,6 +24,10 @@ final class Plugin
             throw new InvalidJsonException("File $filepath does not contain valid JSON: " . json_last_error_msg());
         }
 
+        if (!is_array($result) && $result !== null) {
+            throw new InvalidJsonException("File $filepath must contain a JSON object or array at the top level, got " . get_debug_type($result));
+        }
+
         return $result;
     }
 
@@ -66,8 +70,14 @@ final class Plugin
 
         libxml_use_internal_errors($useInternalErrors);
 
+        $encoded = json_encode($xml);
+
+        if ($encoded === false) {
+            throw new InvalidXmlException("File $filepath could not be converted from XML: " . json_last_error_msg());
+        }
+
         /** @var array<array-key, mixed> $result */
-        $result = json_decode(json_encode($xml), true);
+        $result = json_decode($encoded, true);
 
         return $result;
     }
